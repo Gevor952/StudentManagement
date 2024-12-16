@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <title>Title</title>
 </head>
 <body>
-$END$
+<h1>Add</h1>
+<form action="/lesson/add" method="post">
+  <input type="text" name="title" placeholder="title">
+  <input type="time" name="duration" placeholder="duration">
+  <input type="number" name="price" placeholder="price">
+  <input type="date" name="start_date" placeholder="start_date">
+  <select name="user.id">
+    <option th:each="user : ${users}" th:value="${user.getId()}" th:text="${user.getName()}"></option>
+  </select>
+  <input type="submit" value="add">
+</form>
 </body>
 </html>

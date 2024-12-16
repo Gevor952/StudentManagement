@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+<h1>Students</h1><br>
+<a href="/lesson/add">add</a>
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>surname</th>
+    <th>prise</th>
+    <th>action</th>
+  </tr>
+
+  <tr th:each="lesson : ${lessons}">
+    <td th:text="${lesson.getId()}"></td>
+    <td th:text="${lesson.getTitle()}"></td>
+    <td th:text="${lesson.getDuration()}"></td>
+    <td th:text="${lesson.getPrice()}"></td>
+    <td><a th:href="@{/lesson/delete(id=${lesson.getId()})}">delete</a> /  <a th:href="@{/lesson/edit(id=${lesson.getId()})}">Edit</a></td>
+  </tr>
+
+</table>
 </body>
 </html>

@@ -21,5 +21,6 @@ public class User {
     @ManyToOne
     private Lesson lesson;
     @Enumerated(EnumType.STRING)
+    @Column(name = "user_typ")
     private UserTyp userTyp;
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -20,7 +21,8 @@ public class Lesson {
     private String title;
     private String duration;
     private double price;
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date start_date;
     @ManyToOne
-    private User user;
+    private User teacher;
 }

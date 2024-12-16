@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    List<User> findByUserTyp(UserTyp userTyp);
+    List<User> findAllByUserTyp(UserTyp userTyp);
 
 }
