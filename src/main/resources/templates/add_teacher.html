@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-  <title>Title</title>
+  <title>Add Teacher</title>
+  <link rel="stylesheet" href="/css/teacher_add.css">
 </head>
 <body>
-<h1>Add</h1>
+<h1>Add Teacher</h1>
 <form action="/teacher/add" method="post">
-  <input type="text" name="name" placeholder="name">
-  <input type="text" name="surname" placeholder="surname">
-  <input type="email" name="email" placeholder="email">
-  <input type="submit" value="add">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="text" name="surname" placeholder="Surname" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="submit" value="Add">
 </form>
 </body>
 </html>

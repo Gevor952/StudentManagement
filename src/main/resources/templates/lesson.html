@@ -2,18 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Students</title>
+  <link rel="stylesheet" href="/css/lesson_css.css">
 </head>
 <body>
-<h1>Students</h1><br>
-<a href="/lesson/add">add</a>
+<h1>Students</h1>
+<a href="/lesson/add">Add</a>
 <table border="1">
   <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>surname</th>
-    <th>prise</th>
-    <th>action</th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Prise</th>
+    <th>Action</th>
   </tr>
 
   <tr th:each="lesson : ${lessons}">
@@ -21,9 +22,11 @@
     <td th:text="${lesson.getTitle()}"></td>
     <td th:text="${lesson.getDuration()}"></td>
     <td th:text="${lesson.getPrice()}"></td>
-    <td><a th:href="@{/lesson/delete(id=${lesson.getId()})}">delete</a> /  <a th:href="@{/lesson/edit(id=${lesson.getId()})}">Edit</a></td>
+    <td>
+      <a th:href="@{/lesson/delete(id=${lesson.getId()})}">Delete</a> /
+      <a th:href="@{/lesson/edit(id=${lesson.getId()})}">Edit</a>
+    </td>
   </tr>
-
 </table>
 </body>
 </html>

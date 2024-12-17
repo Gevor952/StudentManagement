@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <title>Title</title>
+    <title>Edit Lesson</title>
+    <link rel="stylesheet" href="/css/lesson_edit.css">
 </head>
 <body>
-<h1>Add</h1>
+<h1>Edit Lesson</h1>
 <form action="/lesson/edit" method="post">
     <input type="hidden" name="id" th:value="${lesson.getId()}">
-    <input type="text" name="title" placeholder="title" th:value="${lesson.getTitle()}">
-    <input type="time" name="duration" placeholder="duration" th:value="${lesson.getDuration()}">
-    <input type="number" name="price" placeholder="price" th:value="${lesson.getPrice()}">
-    <input type="date" name="start_date" placeholder="start_date" th:value="${#dates.format(lesson.getStart_date(), 'yyy-MM-dd')}">
-    <select name="user">
-        <option th:each="user : ${users}" th:value="${user.getId()}" th:text="${user.getName()}"></option>
+    <input type="text" name="title" placeholder="Title" th:value="${lesson.getTitle()}" required>
+    <input type="time" name="duration" placeholder="Duration" th:value="${lesson.getDuration()}" required>
+    <input type="number" name="price" placeholder="Price" th:value="${lesson.getPrice()}" required>
+    <input type="date" name="start_date" placeholder="Start Date"
+           th:value="${#dates.format(lesson.getStart_date(), 'yyyy-MM-dd')}" required>
+    <select name="user" required>
+        <option value="">Select User</option>
+        <option th:each="user : ${users}"
+                th:value="${user.getId()}"
+                th:text="${user.getName()}">
+        </option>
     </select>
-    <input type="submit" value="edit">
+    <input type="submit" value="Edit">
 </form>
 </body>
 </html>

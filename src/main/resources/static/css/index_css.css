@@ -1,0 +1,43 @@
+
+/* Общие стили для всего документа */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+}
+
+/* Заголовок */
+h1 {
+    margin-top: 20px;
+    color: #444;
+    font-size: 2.5em;
+}
+
+/* Навигационные ссылки */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Разделительная линия */
+hr {
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #ddd;
+}
+
+/* Контейнер */
+.nav-container {
+    margin: 20px 0;
+}

@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <title>Title</title>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/css/student_edit.css">
 </head>
 <body>
-<h1>Add</h1>
+<h1>Edit Student</h1>
 <form action="/students/edit" method="post">
     <input type="hidden" name="id" th:value="${user.getId()}">
-    <input type="text" name="name" placeholder="name" th:value="${user.getName()}">
-    <input type="text" name="surname" placeholder="surname" th:value="${user.getSurname()}">
-    <input type="email" name="email" placeholder="email" th:value="${user.getEmail()}">
-    <select name="lesson">
-        <option th:each="lesson : ${lessons}" th:value="${lesson.getId()}" th:text="${lesson.getTitle()}"></option>
+    <input type="text" name="name" placeholder="Name" th:value="${user.getName()}" required>
+    <input type="text" name="surname" placeholder="Surname" th:value="${user.getSurname()}" required>
+    <input type="email" name="email" placeholder="Email" th:value="${user.getEmail()}" required>
+    <select name="lesson" required>
+        <option value="" disabled>Select Lesson</option>
+        <option th:each="lesson : ${lessons}"
+                th:value="${lesson.getId()}"
+                th:text="${lesson.getTitle()}">
+        </option>
     </select>
-    <input type="submit" value="edit">
+    <input type="submit" value="Edit">
 </form>
 </body>
 </html>

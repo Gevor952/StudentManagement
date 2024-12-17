@@ -1,0 +1,84 @@
+/* Общий стиль для страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #f4f5f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+/* Заголовок */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #444;
+}
+
+/* Форма */
+form {
+    width: 90%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Поля ввода и выпадающий список */
+input[type="text"],
+input[type="time"],
+input[type="number"],
+input[type="date"],
+select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+select {
+    cursor: pointer;
+}
+
+/* Кнопка отправки */
+input[type="submit"] {
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Для удобства мобильных устройств */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+}

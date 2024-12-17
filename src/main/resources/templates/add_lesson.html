@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-  <title>Title</title>
+  <title>Add Lesson</title>
+  <link rel="stylesheet" href="/css/lesson_add.css">
 </head>
 <body>
-<h1>Add</h1>
+<h1>Add Lesson</h1>
 <form action="/lesson/add" method="post">
-  <input type="text" name="title" placeholder="title">
-  <input type="time" name="duration" placeholder="duration">
-  <input type="number" name="price" placeholder="price">
-  <input type="date" name="start_date" placeholder="start_date">
-  <select name="user.id">
+  <input type="text" name="title" placeholder="Title" required>
+  <input type="time" name="duration" placeholder="Duration" required>
+  <input type="number" name="price" placeholder="Price" required>
+  <input type="date" name="start_date" placeholder="Start Date" required>
+  <select name="user.id" required>
+    <option value="">Select User</option>
     <option th:each="user : ${users}" th:value="${user.getId()}" th:text="${user.getName()}"></option>
   </select>
-  <input type="submit" value="add">
+  <input type="submit" value="Add">
 </form>
 </body>
 </html>

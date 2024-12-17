@@ -2,30 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/students_css.css">
 </head>
 <body>
-<h1>Students</h1><br>
-<a href="students/add">add</a>
-<table border="1">
+<h1>Students</h1>
+<a href="students/add" class="add-button">Add</a>
+<table>
     <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>surname</th>
-        <th>email</th>
-        <th>lesson</th>
-        <th>action</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Lesson</th>
+        <th>Action</th>
     </tr>
-
     <tr th:each="user : ${users}">
         <td th:text="${user.getId()}"></td>
         <td th:text="${user.getName()}"></td>
         <td th:text="${user.getSurname()}"></td>
         <td th:text="${user.getEmail()}"></td>
         <td th:text="${user.getLesson().getTitle()}"></td>
-        <td><a th:href="@{/students/delete(id=${user.getId()})}">delete</a> /  <a th:href="@{/students/edit(id=${user.getId()})}">Edit</a></td>
+        <td>
+            <a th:href="@{/students/delete(id=${user.getId()})}" class="delete-link">Delete</a> /
+            <a th:href="@{/students/edit(id=${user.getId()})}" class="edit-link">Edit</a>
+        </td>
     </tr>
-
 </table>
 </body>
 </html>
