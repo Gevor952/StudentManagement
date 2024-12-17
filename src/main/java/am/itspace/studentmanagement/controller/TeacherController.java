@@ -1,14 +1,9 @@
 package am.itspace.studentmanagement.controller;
 
-import am.itspace.studentmanagement.entity.Lesson;
 import am.itspace.studentmanagement.entity.User;
 import am.itspace.studentmanagement.entity.UserTyp;
-import am.itspace.studentmanagement.repository.LessonRepository;
-import am.itspace.studentmanagement.repository.UserRepository;
-import am.itspace.studentmanagement.service.LessonService;
 import am.itspace.studentmanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +28,7 @@ public class TeacherController {
 
 
     @GetMapping(value = "/add")
-    public String addStudent(ModelMap modelMap) {
+    public String addStudent() {
         return "add_teacher";
     }
 
@@ -55,8 +50,11 @@ public class TeacherController {
     @GetMapping(value = "/edit")
     public String editStudent(@RequestParam("id") int id, ModelMap modelMap) {
         Optional<User> user = userService.findById(id);
-        modelMap.addAttribute("user", user.get());
-        return "edit_teacher";
+        if (user.isPresent()) {
+            modelMap.addAttribute("user", user.get());
+            return "edit_teacher";
+        }
+       return "redirect:/teacher";
     }
 
     @PostMapping(value = "/edit")

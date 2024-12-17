@@ -3,8 +3,6 @@ package am.itspace.studentmanagement.controller;
 import am.itspace.studentmanagement.entity.Lesson;
 import am.itspace.studentmanagement.entity.User;
 import am.itspace.studentmanagement.entity.UserTyp;
-import am.itspace.studentmanagement.repository.LessonRepository;
-import am.itspace.studentmanagement.repository.UserRepository;
 import am.itspace.studentmanagement.service.LessonService;
 import am.itspace.studentmanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +24,7 @@ public class StudentController {
     @GetMapping
     public String students(ModelMap modelMap) {
         List<User> users = userService.findByUserTyp(UserTyp.STUDENT);
+        System.out.println(users);
         modelMap.addAttribute("users", users);
         return "students";
     }
@@ -54,10 +53,14 @@ public class StudentController {
     @GetMapping(value = "/edit")
     public String editStudent(@RequestParam("id") int id, ModelMap modelMap) {
         Optional<User> user = userService.findById(id);
-        List<Lesson> lessons = lessonService.findAll();
-        modelMap.addAttribute("lessons", lessons);
-        modelMap.addAttribute("user", user.get());
-        return "edit_student";
+
+        if (user.isPresent()) {
+            List<Lesson> lessons = lessonService.findAll();
+            modelMap.addAttribute("lessons", lessons);
+            modelMap.addAttribute("user", user.get());
+            return "edit_student";
+        }
+        return "redirect:/students";
     }
 
     @PostMapping(value = "/edit")

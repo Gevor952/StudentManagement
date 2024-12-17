@@ -50,10 +50,13 @@ public class LessonController {
     @GetMapping(value = "/edit")
     public String editStudent(@RequestParam("id") int id, ModelMap modelMap) {
         Optional<Lesson> lesson = lessonService.findById(id);
-        List<User> users = userService.findAll();
-        modelMap.addAttribute("lesson", lesson.get());
-        modelMap.addAttribute("users", users);
-        return "edit_lesson";
+        if (lesson.isPresent()) {
+            List<User> users = userService.findAll();
+            modelMap.addAttribute("lesson", lesson.get());
+            modelMap.addAttribute("users", users);
+            return "edit_lesson";
+        }
+        return "redirect:/lesson";
     }
 
     @PostMapping(value = "/edit")
