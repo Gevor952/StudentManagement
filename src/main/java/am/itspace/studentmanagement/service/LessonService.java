@@ -9,7 +9,7 @@ public interface LessonService {
 
     List<Lesson> findAll();
 
-    Lesson save(Lesson lesson);
+    void save(Lesson lesson);
 
     void deleteById(int id);
 

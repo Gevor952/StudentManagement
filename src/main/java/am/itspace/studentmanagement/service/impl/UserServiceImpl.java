@@ -1,6 +1,5 @@
 package am.itspace.studentmanagement.service.impl;
 
-import am.itspace.studentmanagement.entity.Lesson;
 import am.itspace.studentmanagement.entity.User;
 import am.itspace.studentmanagement.entity.UserTyp;
 import am.itspace.studentmanagement.repository.UserRepository;
@@ -24,8 +23,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User user) {
-        return userRepository.save(user);
+    public void save(User user) {
+        userRepository.save(user);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package am.itspace.studentmanagement.service;
 
-import am.itspace.studentmanagement.entity.Lesson;
 import am.itspace.studentmanagement.entity.User;
 import am.itspace.studentmanagement.entity.UserTyp;
 
@@ -11,7 +10,7 @@ public interface UserService {
 
     List<User> findAll();
 
-    User save(User user);
+    void save(User user);
 
     void deleteById(int id);
 

@@ -21,8 +21,8 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public Lesson save(Lesson lesson) {
-        return lessonRepository.save(lesson);
+    public void save(Lesson lesson) {
+        lessonRepository.save(lesson);
     }
 
     @Override
