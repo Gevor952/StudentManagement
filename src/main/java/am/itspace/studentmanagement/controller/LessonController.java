@@ -42,7 +42,7 @@ public class LessonController {
     }
 
     @GetMapping(value = "/delete")
-    public String deleteLesson(@RequestParam int lessonId) {
+    public String deleteLesson(@RequestParam("id") int lessonId) {
         lessonService.deleteById(lessonId);
         return "redirect:/lesson";
     }
